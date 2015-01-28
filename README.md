@@ -90,7 +90,7 @@ pwcs uses CMake as a build system and allows several flexible build configuratio
 
 First clone the git repository using the command line git client or your favorite gui interface. By default this will create a directory `pwcs` in the current working directory. You should change to this repository root, after the clone operation has finished.
 
-    $ git clone https://github.com/qubit-ulm/pwcs.git
+    $ git clone --recursive https://github.com/qubit-ulm/pwcs.git 
     $ cd pwcs                                        
 
 Then, make a build directory.  The directory can have any name, not just 'build', but 'build' is sufficient.
