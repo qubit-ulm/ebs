@@ -7,11 +7,9 @@ addpath(genpath('./mm'));
 
 if isunix()
     setenv('PATH', [getenv('PATH'), ':../build/bin']);
-    if ismac()
-        exec = @(cmd) system(sprintf('LD_LIBRARY_PATH="" && %s', cmd));
-    else
-        exec = @(cmd) system(sprintf('LD_LIBRARY_PATH="" && %s', cmd));
-    end
+    
+    exec = @(cmd) system(sprintf('LD_LIBRARY_PATH="" && %s', cmd));
+    
 else
     setenv('PATH', [getenv('PATH'), ';..\\build\\bin']);
     exec = @(cmd) system(cmd);
@@ -24,9 +22,12 @@ end
 % The following piece of code generates noisy step data:
 sp = SimParams();
 sp.N = 1e5;
+sp.h = 5e-4;
+sp.poissonPars.jump_rate = 5;
 sd = SimData(sp);
 sd = sd.simulatePoissonSteps();
 sd = sd.simOptTrapNoise();
+sd.plotData();
 
 mmwrite('noisy_data.mm', sd.data);
 
@@ -45,7 +46,7 @@ cmd = ['denoising', ...
 assert(status == 0);
 
 %% Building a level grid and running the graph cut
-distance = 0.2;
+distance = 1.0;
 cmd = ['level_generator', ...
        ' --level-distance ', num2str(distance), ...
        ' --input ', 'denoised_data.mm', ...
@@ -56,9 +57,9 @@ assert(status == 0);
 cmd = ['graph_processing', ...
        ' --levels ', 'level_data.mm', ...
        ' --rho-d ', num2str(0.01), ...
-       ' --rho-s ', num2str(0.1), ...
+       ' --rho-s ', num2str(0.5), ...
        ' --rho-p ', num2str(0.2), ...
-       ' --prior-distance ', num2str(0.2), ...
+       ' --prior-distance ', num2str(1.0), ...
        ' --input ', 'denoised_data.mm', ...
        ' --output ', 'clustered_data.mm'];
 [status] = exec(cmd);

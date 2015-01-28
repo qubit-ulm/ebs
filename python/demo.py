@@ -17,7 +17,7 @@ def denoise_signal():
 
 
 def cluster_signal():
-    distance = 0.2
+    distance = 0.34
     cmd = ['level_generator', 
            '--level-distance', str(distance), 
            '--input', 'denoised_data.mm', 
@@ -27,8 +27,8 @@ def cluster_signal():
     cmd = ['graph_processing', 
            '--levels', 'level_data.mm', 
            '--rho-d', str(0.01),
-           '--rho-s',  str(0.1), 
-           '--rho-p',  str(0.2), 
+           '--rho-s',  str(0.2), 
+           '--rho-p',  str(0.02), 
            '--prior-distance', str(distance), 
            '--input', 'denoised_data.mm', 
            '--output', 'clustered_data.mm'];
