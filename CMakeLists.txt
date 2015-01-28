@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 2.8.4)
+
+project(pwcs)
+
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+set(CMAKE_BUILD_TYPE "Debug")
+
+set(OUTPUT_DIR ${PROJECT_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTOR  ${OUTPUT_DIR}) 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+
+foreach(OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
+    string(TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${OUTPUT_DIR} )
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${OUTPUT_DIR} )
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${OUTPUT_DIR} )
+endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
+
+include(standard_flags)
+
+add_subdirectory(libs)
+add_subdirectory(common)
+add_subdirectory(denoising)
+add_subdirectory(graph_processing)

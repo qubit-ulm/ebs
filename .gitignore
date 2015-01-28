@@ -23,6 +23,13 @@
 *.lib
 
 # Executables
+build/*
 *.exe
 *.out
 *.app
+
+# IDE Files
+.idea
+*.swp
+*.m~
+*.mm
