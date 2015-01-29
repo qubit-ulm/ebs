@@ -1,6 +1,7 @@
 # PWCS
-
 This repository contains the implementation of the method described in the paper 'An Energy Based Scheme for Reconstruction of Piecewise Constant Signals underlying Molecular Machines'
+
+[![Build Status](https://travis-ci.org/qubit-ulm/pwcs.svg?branch=master)](https://travis-ci.org/qubit-ulm/pwcs)
 
 # Introduction 
 Analyzing the physical and chemical properties of single DNA based molecular machines such as polymerases and helicases often necessitates to track motion on the length scale of base pairs. Although high resolution instruments have been developed that are capable to reach that limit, individual steps are often times hidden by a significant amount of noise which complicates data processing. 
@@ -65,7 +66,7 @@ To turn on the step height prior, the parameter `--rho-p` has to be chosen > 0. 
 
 
 # Demos
-The source package contains demo code which demonstrates the usage of the above described programs form either [Matlab](http://www.mathworks.com/products/matlab/) or [Python](http://www.python.org). The Matlab demo is in the `matlab/demo.m` file. In this file the simulation code is used to create new test data for each run. The Python one in `python/demo.py`. Here we use canned test data from the `noisy_data.mm` file in the same directory. The result of each demo run should be a plot which should look like the picture below:
+The source package contains demo code which demonstrates the usage of the above described programs form either [Matlab](http://www.mathworks.com/products/matlab/) or [Python](http://www.python.org). The Matlab demo is in the `matlab/demo.m` file. In this file the simulation code is used to create new test data for each run. The Python one in `python/demo.py`. Here we use pre-generated test data from the `noisy_data.mm` file in the same directory. The result of each demo run should be a plot which should look like the picture below:
 
 ![Output plot of the demos](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_full.png)
 ![Takeout of the demo plot](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_outtake.png)

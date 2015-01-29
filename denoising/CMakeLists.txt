@@ -21,6 +21,7 @@ add_dependencies(denoising boost_program_options
 						   boost_filesystem
 						   boost_date_time)
 target_link_libraries(denoising 
+              rt
 		      ${BoostProgramOptionsLibs} 
 		      ${BoostLogLibs} 
 		      ${BoostSystemLibs} 
@@ -50,6 +51,7 @@ add_dependencies(lambdaopt boost_program_options
 						   boost_filesystem
 						   boost_date_time)
 target_link_libraries(lambdaopt
+              rt
 		      ${BoostProgramOptionsLibs} 
 		      ${BoostLogLibs} 
 		      ${BoostSystemLibs} 

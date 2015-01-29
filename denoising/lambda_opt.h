@@ -120,7 +120,7 @@ namespace {
 			using namespace std;
 
 			auto thresh = 1.0e-7;
-			auto delta = 5.0;
+			auto rho = 5.0;
 			auto N = (double)m_noisy.size();
 			auto f_prev = 1.0;
 			auto n_prev = countJumpsForLambda(f_prev * lambda_max, thresh);
@@ -148,7 +148,7 @@ namespace {
 				
 				f_prev = f;
 				n_prev = n;
-				f = f_prev / delta;
+				f = f_prev / rho;
 				n = countJumpsForLambda(f * lambda_max, thresh);
 			}
 
