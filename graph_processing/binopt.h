@@ -722,7 +722,7 @@ private:
         if (display)
         {
             string cmd = "dot -Tsvg " + gvName.str() + " | display";    
-            system(cmd.c_str());
+            assert(system(cmd.c_str()) == 0);
         }
     }
 

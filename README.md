@@ -5,7 +5,7 @@ This repository contains the implementation of the method described in the paper
 
 # Introduction 
 Analyzing the physical and chemical properties of single DNA based molecular machines such as polymerases and helicases often necessitates to track motion on the length scale of base pairs. Although high resolution instruments have been developed that are capable to reach that limit, individual steps are often times hidden by a significant amount of noise which complicates data processing. 
-The pwcs projects implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
+The pwcs project implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
 
 # Usage
 After building pwcs, the executables will reside in `build/bin/`. You can call them from there. The documentation below assumes, that the binaries are there.
@@ -28,7 +28,7 @@ If one wants to see more details of the inner workings of a program, adding the 
 
 The [Matrix Market File format](http://math.nist.gov/MatrixMarket/formats.html) as the default input output format. The format ASCII based, allows comment lines, which begin with a percent sign. We use the "array" format for general dense vectors. Details how to handle this format in python or matlab can be found in the particular demos.
 
-If you find a bug in pwcs, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue timely. 
+If you find a bug in pwcs, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue in a timely fashion. 
 
 ## Determining the regularization parameter lambda
 The first step in a typical processing chain of a piecewise constant singnal is to determine a reasonable choice for the regularization pparameter lambda. Typically this requires a lot of twiddling. The program `lambdaopt` implements the heuristic we proposed in the paper to chose this parameter automatically.
