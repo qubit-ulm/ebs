@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(pwcs)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 
 set(OUTPUT_DIR ${PROJECT_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTOR  ${OUTPUT_DIR}) 

@@ -1,10 +1,11 @@
 # PWCS
-
 This repository contains the implementation of the method described in the paper 'An Energy Based Scheme for Reconstruction of Piecewise Constant Signals underlying Molecular Machines'
+
+[![Build Status](https://travis-ci.org/qubit-ulm/pwcs.svg?branch=master)](https://travis-ci.org/qubit-ulm/pwcs)
 
 # Introduction 
 Analyzing the physical and chemical properties of single DNA based molecular machines such as polymerases and helicases often necessitates to track motion on the length scale of base pairs. Although high resolution instruments have been developed that are capable to reach that limit, individual steps are often times hidden by a significant amount of noise which complicates data processing. 
-The pwcs projects implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
+The pwcs project implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
 
 # Usage
 After building pwcs, the executables will reside in `build/bin/`. You can call them from there. The documentation below assumes, that the binaries are there.
@@ -27,7 +28,7 @@ If one wants to see more details of the inner workings of a program, adding the 
 
 The [Matrix Market File format](http://math.nist.gov/MatrixMarket/formats.html) as the default input output format. The format ASCII based, allows comment lines, which begin with a percent sign. We use the "array" format for general dense vectors. Details how to handle this format in python or matlab can be found in the particular demos.
 
-If you find a bug in pwcs, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue timely. 
+If you find a bug in pwcs, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue in a timely fashion. 
 
 ## Determining the regularization parameter lambda
 The first step in a typical processing chain of a piecewise constant singnal is to determine a reasonable choice for the regularization pparameter lambda. Typically this requires a lot of twiddling. The program `lambdaopt` implements the heuristic we proposed in the paper to chose this parameter automatically.
@@ -65,7 +66,7 @@ To turn on the step height prior, the parameter `--rho-p` has to be chosen > 0. 
 
 
 # Demos
-The source package contains demo code which demonstrates the usage of the above described programs form either [Matlab](http://www.mathworks.com/products/matlab/) or [Python](http://www.python.org). The Matlab demo is in the `matlab/demo.m` file. In this file the simulation code is used to create new test data for each run. The Python one in `python/demo.py`. Here we use canned test data from the `noisy_data.mm` file in the same directory. The result of each demo run should be a plot which should look like the picture below:
+The source package contains demo code which demonstrates the usage of the above described programs form either [Matlab](http://www.mathworks.com/products/matlab/) or [Python](http://www.python.org). The Matlab demo is in the `matlab/demo.m` file. In this file the simulation code is used to create new test data for each run. The Python one in `python/demo.py`. Here we use pre-generated test data from the `noisy_data.mm` file in the same directory. The result of each demo run should be a plot which should look like the picture below:
 
 ![Output plot of the demos](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_full.png)
 ![Takeout of the demo plot](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_outtake.png)

@@ -28,6 +28,7 @@ add_dependencies(graph_processing boost_program_options
 								  boost_date_time
 								  boost_graph)
 target_link_libraries(graph_processing
+                      rt
                       ${BoostProgramOptionsLibs} 
                       ${BoostLogLibs} 
                       ${BoostSystemLibs} 
@@ -57,6 +58,7 @@ add_dependencies(level_generator boost_program_options
                                  boost_filesystem
                                  boost_date_time)
 target_link_libraries(level_generator
+                      rt
                       ${BoostProgramOptionsLibs} 
                       ${BoostLogLibs} 
                       ${BoostSystemLibs} 
