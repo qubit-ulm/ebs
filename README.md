@@ -78,12 +78,12 @@ pwcs has the following requirements on Unix systems
 
     gcc >= 4.8 or
     Clang >= 3.3
-    cmake >= 2.8.4 
+    cmake >= 2.8.12 
 
 on Windows systems 
     
     Visual Studio C++ >= 2012
-    cmake >= 2.8.4
+    cmake >= 2.8.12
 
 ## Build Process
 pwcs uses CMake as a build system and allows several flexible build configuration options. One can consult any of numerous CMake tutorials for further documentation, but this tutorial should be enough to get pwcs ready to use.
