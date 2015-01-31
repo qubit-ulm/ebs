@@ -28,7 +28,6 @@ add_dependencies(graph_processing boost_program_options
 								  boost_date_time
 								  boost_graph)
 target_link_libraries(graph_processing
-                      rt
                       ${BoostProgramOptionsLibs} 
                       ${BoostLogLibs} 
                       ${BoostSystemLibs} 
@@ -37,6 +36,10 @@ target_link_libraries(graph_processing
                       ${BoostDateTimeLibs}
                       ${BoostChronoLibs}
                       ${BoostGraphLibs})
+					  
+if(UNIX)
+    target_link_libraries(graph_processing rt)
+endif()
 
 default_target_compile_options(graph_processing)
 
@@ -58,7 +61,6 @@ add_dependencies(level_generator boost_program_options
                                  boost_filesystem
                                  boost_date_time)
 target_link_libraries(level_generator
-                      rt
                       ${BoostProgramOptionsLibs} 
                       ${BoostLogLibs} 
                       ${BoostSystemLibs} 
@@ -67,6 +69,10 @@ target_link_libraries(level_generator
                       ${BoostDateTimeLibs}
                       ${BoostChronoLibs})
 
+if(UNIX)
+    target_link_libraries(level_generator rt)
+endif()
+					  
 default_target_compile_options(level_generator)
 
 
