@@ -37,7 +37,7 @@ target_link_libraries(graph_processing
                       ${BoostChronoLibs}
                       ${BoostGraphLibs})
 					  
-if(UNIX)
+if(UNIX AND NOT APPLE)
     target_link_libraries(graph_processing rt)
 endif()
 
@@ -69,7 +69,7 @@ target_link_libraries(level_generator
                       ${BoostDateTimeLibs}
                       ${BoostChronoLibs})
 
-if(UNIX)
+if(UNIX AND NOT APPLE)
     target_link_libraries(level_generator rt)
 endif()
 					  

@@ -28,7 +28,7 @@ target_link_libraries(denoising
 			  ${BoostFilesystemLibs}
 			  ${BoostDateTimeLibs}
 			  ${BoostChronoLibs})
-if(UNIX)
+if(UNIX AND NOT APPLE)
     target_link_libraries(denoising rt)
 endif()
 			  
@@ -61,7 +61,7 @@ target_link_libraries(lambdaopt
 			  ${BoostDateTimeLibs}
 			  ${BoostChronoLibs})
 
-if(UNIX)
+if(UNIX AND NOT APPLE)
     target_link_libraries(lambdaopt rt)
 endif()
 			
