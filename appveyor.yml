@@ -6,8 +6,9 @@ init:
 build_script:
   - mkdir build
   - cd build
-  - cmake .. 
+  - cmake -G"Visual Studio 12 Win64" .. 
   - msbuild pwcs.sln 
 
 test_script:
   - echo "TODO"
+
