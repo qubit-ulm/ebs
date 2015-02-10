@@ -1,0 +1,13 @@
+platform: x64
+
+init:
+  - SET PATH=C:\Program Files (x86)\MSBuild\12.0\bin\;%PATH%
+
+build_script:
+  - mkdir build
+  - cd build
+  - cmake .. 
+  - msbuild pwcs.sln 
+
+test_script:
+  - echo "TODO"
