@@ -7,7 +7,7 @@ build_script:
   - mkdir build
   - cd build
   - cmake -G"Visual Studio 12 Win64" .. 
-  - msbuild pwcs.sln 
+  - msbuild ebs.sln 
 
 test_script:
   - echo "TODO"
