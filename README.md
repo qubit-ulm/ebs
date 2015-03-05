@@ -1,18 +1,18 @@
-# PWCS
+# Energy Based Stepdetection (EBS) 
 This repository contains the implementation of the method described in the paper 'An Energy Based Scheme for Reconstruction of Piecewise Constant Signals underlying Molecular Machines'
 
-[![Linux Build Status](https://travis-ci.org/qubit-ulm/pwcs.svg?branch=master)](https://travis-ci.org/qubit-ulm/pwcs)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/9p8h3fjhf9bbs87a?svg=true)](https://ci.appveyor.com/project/jrosskopf/pwcs)
+[![Linux Build Status](https://travis-ci.org/qubit-ulm/ebs.svg?branch=master)](https://travis-ci.org/qubit-ulm/ebs)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/9p8h3fjhf9bbs87a?svg=true)](https://ci.appveyor.com/project/jrosskopf/ebs)
 
 # Introduction 
 Analyzing the physical and chemical properties of single DNA based molecular machines such as polymerases and helicases often necessitates to track motion on the length scale of base pairs. Although high resolution instruments have been developed that are capable to reach that limit, individual steps are often times hidden by a significant amount of noise which complicates data processing. 
-The pwcs project implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
+The EBS project implements an effective algorithm which detects steps in a high bandwidth signal by minimizing energy functionals. In a first step an efficient convex denoising scheme is applied which allows compression to tupels of amplitudes and plateau lengths. Thus more sophisticated methods for assigning steps to the tupel data while accounting for prior information can be used. To this end we employed a combinatorial optimization algorithm formulated on a graph.
 
 # Usage
-After building pwcs, the executables will reside in `build/bin/`. You can call them from there. The documentation below assumes, that the binaries are there.
+After building EBS, the executables will reside in `build/bin/`. You can call them from there. The documentation below assumes, that the binaries are there.
 
 ## General remarks
-pwcs consists of four executables:
+EBS consists of four executables:
 
 * `lambdaopt` using a heuristic to determining the optimal TVDN regularization parameter
 * `denoising` to remove the noise by solving the TVDN problem
@@ -29,7 +29,7 @@ If one wants to see more details of the inner workings of a program, adding the 
 
 The [Matrix Market File format](http://math.nist.gov/MatrixMarket/formats.html) as the default input output format. The format ASCII based, allows comment lines, which begin with a percent sign. We use the "array" format for general dense vectors. Details how to handle this format in python or matlab can be found in the particular demos.
 
-If you find a bug in pwcs, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue in a timely fashion. 
+If you find a bug in EBS, have a problem using it or have a question about the method in general, feel free to open a github issue. The development team will try to answer the problem or fix the issue in a timely fashion. 
 
 ## Determining the regularization parameter lambda
 The first step in a typical processing chain of a piecewise constant singnal is to determine a reasonable choice for the regularization pparameter lambda. Typically this requires a lot of twiddling. The program `lambdaopt` implements the heuristic we proposed in the paper to chose this parameter automatically.
@@ -69,14 +69,14 @@ To turn on the step height prior, the parameter `--rho-p` has to be chosen > 0. 
 # Demos
 The source package contains demo code which demonstrates the usage of the above described programs form either [Matlab](http://www.mathworks.com/products/matlab/) or [Python](http://www.python.org). The Matlab demo is in the `matlab/demo.m` file. In this file the simulation code is used to create new test data for each run. The Python one in `python/demo.py`. Here we use pre-generated test data from the `noisy_data.mm` file in the same directory. The result of each demo run should be a plot which should look like the picture below:
 
-![Output plot of the demos](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_full.png)
-![Takeout of the demo plot](https://github.com/qubit-ulm/pwcs/blob/master/demo_plot_outtake.png)
+![Output plot of the demos](https://github.com/qubit-ulm/ebs/blob/master/demo_plot_full.png)
+![Takeout of the demo plot](https://github.com/qubit-ulm/ebs/blob/master/demo_plot_outtake.png)
 
 
 # Building
 
 ## Requirements
-pwcs has the following requirements on Unix systems
+EBS has the following requirements on Unix systems
 
     gcc >= 4.8 or
     Clang >= 3.3
@@ -88,19 +88,19 @@ on Windows systems
     cmake >= 2.8.12
 
 ## Build Process
-pwcs uses CMake as a build system and allows several flexible build configuration options. One can consult any of numerous CMake tutorials for further documentation, but this tutorial should be enough to get pwcs ready to use.
+EBS uses CMake as a build system and allows several flexible build configuration options. One can consult any of numerous CMake tutorials for further documentation, but this tutorial should be enough to get EBS ready to use.
 
-First clone the git repository using the command line git client or your favorite gui interface. By default this will create a directory `pwcs` in the current working directory. You should change to this repository root, after the clone operation has finished.
+First clone the git repository using the command line git client or your favorite gui interface. By default this will create a directory `ebs` in the current working directory. You should change to this repository root, after the clone operation has finished.
 
-    $ git clone --recursive https://github.com/qubit-ulm/pwcs.git 
-    $ cd pwcs                                        
+    $ git clone --recursive https://github.com/qubit-ulm/ebs.git 
+    $ cd ebs 
 
 Then, make a build directory.  The directory can have any name, not just 'build', but 'build' is sufficient.
 
     $ mkdir build                                     
     $ cd build
 
-The next step is to run CMake to configure the project.  Running CMake is the equivalent to running `./configure` with autotools. In this step CMake will also download the boost library, extract and bootstrap it. Boost is a dependency of pwcs and is used for different purposes. All necessary parts of boost are statically linked, so a boost installation is not necessary on the computer.
+The next step is to run CMake to configure the project.  Running CMake is the equivalent to running `./configure` with autotools. In this step CMake will also download the boost library, extract and bootstrap it. Boost is a dependency of EBS and is used for different purposes. All necessary parts of boost are statically linked, so a boost installation is not necessary on the computer.
 
     $ cmake ..
 
@@ -110,11 +110,11 @@ Once CMake has finished, the process building the executable depends on the opte
 
 On Windows systems you should run from the Visual Studio Command Prompt `msbuild`
 
-    $ msbuild pwcs.sln
+    $ msbuild ebs.sln
 
-This will build the denoising as well as the graph processing part of pwcs.
+This will build the denoising as well as the graph processing part of EBS.
 
-If the build fails and you cannot figure out why, please file a ticket on the github page  the pwcs developers will quickly help you figure it out.
+If the build fails and you cannot figure out why, please file a ticket on the github page the EBS developers will quickly help you figure it out.
 
 
 # Attribution
@@ -122,11 +122,11 @@ If the build fails and you cannot figure out why, please file a ticket on the gi
 Please cite `, (2015)
 <http://arxiv.org/abs/1202.3665>`_ if you find this code useful in your
 research and add your project or publication to `the users list
-<https://github.com/qubit-ulm/pwcs/blob/master/docs/users.md>`_.
+<https://github.com/qubit-ulm/ebs/blob/master/docs/users.md>`_.
 
 The BibTeX entry for our paper is::
 
-    @article{pwcs,
+    @article{ebs,
        author = {},
         title = {An Energy Based Scheme for Reconstructing Piecewise Constant Signals underlying Molecular Machines},
       journal = {Biophysical Journal},
@@ -138,7 +138,7 @@ The BibTeX entry for our paper is::
     }
 
 # License
-The pwcs project is licensed to you under the Apache License, Version 2.0 (the "License"); you may not use the code except in compliance with the License. You may obtain a copy of the License at
+The EBS project is licensed to you under the Apache License, Version 2.0 (the "License"); you may not use the code except in compliance with the License. You may obtain a copy of the License at
 
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
