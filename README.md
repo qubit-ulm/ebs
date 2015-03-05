@@ -2,7 +2,7 @@
 This repository contains the implementation of the method described in the paper 'An Energy Based Scheme for Reconstruction of Piecewise Constant Signals underlying Molecular Machines'
 
 [![Linux Build Status](https://travis-ci.org/qubit-ulm/ebs.svg?branch=master)](https://travis-ci.org/qubit-ulm/ebs)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/9p8h3fjhf9bbs87a?svg=true)](https://ci.appveyor.com/project/jrosskopf/ebs)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/of2bssgx58e8qyi3?svg=true)](https://ci.appveyor.com/project/jrosskopf/ebs)
 
 # Introduction 
 Analyzing the physical and chemical properties of single DNA based molecular machines such as polymerases and helicases often necessitates to track motion on the length scale of base pairs. Although high resolution instruments have been developed that are capable to reach that limit, individual steps are often times hidden by a significant amount of noise which complicates data processing. 
