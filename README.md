@@ -120,7 +120,7 @@ If the build fails and you cannot figure out why, please file a ticket on the gi
 # Attribution
 
 Please cite `An Energy Based Scheme for Reconstruction of Piecewise Constant Signals observed in the Movement of Molecular Machines, (2015)`
-[http://arxiv.org/abs/1504.07873][http://arxiv.org/abs/1504.07873]. If you find this code useful in your research and add your project or publication to `the users list
+[http://arxiv.org/abs/1504.07873]. If you find this code useful in your research and add your project or publication to `the users list
 <https://github.com/qubit-ulm/ebs/blob/master/docs/users.md>`_.
 
 The BibTeX entry for our paper is::
